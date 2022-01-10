@@ -1,8 +1,10 @@
 import { HomePage } from "../HomePage/HomePage";
 import { MoviesPage } from "../MoviesPage/MoviesPage";
+import { MovieDetailsPage } from "../MovieDetailsPage/MovieDetailsPage";
 import { Trending, Search, MovieById, Credits, Reviews } from "../../API/api";
 import { Fragment, useState, useEffect } from "react";
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { ROUTES } from "../../consts";
 export default function App() {
   const [query, setQuery] = useState("car");
   const [page, setPage] = useState(2);
@@ -34,7 +36,7 @@ export default function App() {
       console.error(e);
     }
   };
-  //apiMovieById();
+  apiMovieById();
   const apiCredits = async () => {
     try {
       const data = await Credits(movieId);
@@ -52,20 +54,21 @@ export default function App() {
       console.error(e);
     }
   };
-  apiReviews();
+  // apiReviews();
   return (
     <BrowserRouter>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to={ROUTES.HomePage}>Home</Link>
         </li>
         <li>
-          <Link to="/movies">Movies</Link>
+          <Link to={ROUTES.MoviesPage}>Movies</Link>
         </li>
       </ul>
 
-      <Route path="/" exact component={HomePage} />
-      <Route path="/movies" component={MoviesPage} />
+      <Route path={ROUTES.HomePage} exact component={HomePage} />
+      <Route path={ROUTES.MoviesPage} component={MoviesPage} />
+      <Route path={ROUTES.MovieDetailsPage} component={MovieDetailsPage} />
     </BrowserRouter>
   );
 }

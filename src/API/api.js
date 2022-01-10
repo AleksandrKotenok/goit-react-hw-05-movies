@@ -12,8 +12,8 @@ axios.defaults.params = {  api_key: '7483e932537577abdaa29f08ebe6fdbf'};
 
 export const  Trending = async () => {
   try {
-    const  response = await axios.get('/trending/all/day');
-    return response.data;
+    const  response = await axios.get('/trending/movie/day');
+    return response.data.results;
   } catch (e) {
     console.error(e);
   }
