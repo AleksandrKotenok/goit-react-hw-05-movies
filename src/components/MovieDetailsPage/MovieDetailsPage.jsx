@@ -1,7 +1,9 @@
+import { Cast } from "./Cast/Cast";
+import { Review } from "./Reviews/Reviews";
+import { MovieById } from "../../API/api";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { MovieById } from "../../API/api";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { ROUTES } from "../../consts";
 
 export const MovieDetailsPage = () => {
@@ -28,7 +30,7 @@ export const MovieDetailsPage = () => {
   return (
     <section>
       <div>
-        <img src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} alt="" />
+        <img src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} alt={details.original_title} />
       </div>
       <div>
         <h1> {details.title} </h1>
@@ -49,13 +51,15 @@ export const MovieDetailsPage = () => {
         <p>Aditional information</p>
         <ul>
           <li>
-            <Link>Cast</Link>
+            <Link to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>Cast</Link>
           </li>
           <li>
-            <Link>Review</Link>
+            <Link to={`${ROUTES.MoviesPage}/${movieId}/${"reviews"}`}>Review</Link>
           </li>
         </ul>
       </div>
+      <Route path={ROUTES.Cast} component={Cast} />
+      <Route path={ROUTES.Review} component={Review} />
     </section>
   );
 };

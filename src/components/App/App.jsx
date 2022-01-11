@@ -3,7 +3,7 @@ import { MoviesPage } from "../MoviesPage/MoviesPage";
 import { MovieDetailsPage } from "../MovieDetailsPage/MovieDetailsPage";
 import { Trending, Search, MovieById, Credits, Reviews } from "../../API/api";
 import { Fragment, useState, useEffect } from "react";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import { ROUTES } from "../../consts";
 export default function App() {
   const [query, setQuery] = useState("car");
@@ -67,7 +67,7 @@ export default function App() {
       </ul>
 
       <Route path={ROUTES.HomePage} exact component={HomePage} />
-      <Route path={ROUTES.MoviesPage} component={MoviesPage} />
+      <Route path={ROUTES.MoviesPage} exact component={MoviesPage} />
       <Route path={ROUTES.MovieDetailsPage} component={MovieDetailsPage} />
     </BrowserRouter>
   );
