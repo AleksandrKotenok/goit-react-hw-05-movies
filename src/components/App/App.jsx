@@ -36,7 +36,7 @@ export default function App() {
       console.error(e);
     }
   };
-  apiMovieById();
+  //apiMovieById();
   const apiCredits = async () => {
     try {
       const data = await Credits(movieId);

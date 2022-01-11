@@ -51,3 +51,4 @@ export const Reviews = async (movieId) => {
   }
 };
 
+
