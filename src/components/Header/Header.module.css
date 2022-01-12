@@ -1,0 +1,18 @@
+.list{
+display: flex;
+}
+.item{
+ display: flex;
+ list-style-type: none;
+ margin-right: 20px;
+ font-size: 30px;
+
+}
+.link{
+   text-decoration: none;
+ cursor: pointer;
+ color: rgb(0, 0, 0);
+}
+.link:hover, .link:focus{
+   color: deeppink;
+}
