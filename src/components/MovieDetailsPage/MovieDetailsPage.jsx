@@ -18,16 +18,12 @@ export const MovieDetailsPage = () => {
         const data = await MovieById(movieId);
         setDetails(data);
         setGenres(data.genres);
-        console.log("details1", genres);
       } catch (e) {
         console.error(e);
       }
     };
     apiMovieById();
-    console.log("details2", genres);
   }, []);
-  console.log("details3", details);
-  //const year = details.release_date.slice(0, 4);
   return (
     <section>
       <div className={s.container}>

@@ -10,7 +10,6 @@ export const Review = () => {
       try {
         const data = await Reviews(movieId);
         setReview(data);
-        console.log(data);
       } catch (e) {
         console.error(e);
       }
@@ -22,7 +21,7 @@ export const Review = () => {
       {review && (
         <ul>
           {review.map((rev) => (
-            <li>
+            <li key={rev.id}>
               <p className={s.author}>{rev.author}</p>
               <p>{rev.content}</p>
             </li>

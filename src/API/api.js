@@ -18,10 +18,10 @@ export const  Trending = async () => {
     console.error(e);
   }
 };
-export const  Search = async (query,page) => {
+export const  Search = async (query) => {
   try {
-    const  response = await axios.get(`/search/movie?&query=${query}&page=${page}`);
-    return response.data;
+    const  response = await axios.get(`/search/movie?&query=${query}&page=1`);
+    return response.data.results;
   } catch (e) {
     console.error(e);
   }
