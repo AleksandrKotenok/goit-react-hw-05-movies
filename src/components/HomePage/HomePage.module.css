@@ -1,0 +1,11 @@
+.list{
+display: flex;
+flex-direction: column;
+list-style-type: none;
+}
+.item{
+   display: flex;
+   font-weight: bold;
+   font-size: 16px;
+   
+}
