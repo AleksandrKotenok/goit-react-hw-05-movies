@@ -45,7 +45,7 @@ export const Credits = async (movieId) => {
 export const Reviews = async (movieId) => {
   try {
     const response = await axios.get(`/movie/${movieId}/reviews`);
-    return response.data;
+    return response.data.results;
   } catch (e) {
     console.error(e);
   }
