@@ -2,9 +2,10 @@ import { Trending } from "../../API/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../consts";
+
 import s from "./HomePage.module.css";
 
-export const HomePage = () => {
+export default function HomePage() {
   const [trends, setTrends] = useState([]);
   useEffect(() => {
     const apiTrending = async () => {
@@ -26,4 +27,4 @@ export const HomePage = () => {
       ))}
     </ul>
   );
-};
+}

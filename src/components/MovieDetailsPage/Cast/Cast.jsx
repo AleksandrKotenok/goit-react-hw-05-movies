@@ -2,6 +2,7 @@ import { Credits } from "../../../API/api";
 import noImage from "../../../image/noImage.jpg";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import s from "../Cast/Cast.module.css";
 
 export const Cast = () => {
@@ -17,7 +18,7 @@ export const Cast = () => {
       }
     };
     apiCredits();
-  }, []);
+  }, [movieId]);
   return (
     <section>
       <ul className={s.list}>

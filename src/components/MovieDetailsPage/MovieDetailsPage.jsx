@@ -1,17 +1,27 @@
 import { Cast } from "./Cast/Cast";
 import { Review } from "./Reviews/Reviews";
 import { MovieById } from "../../API/api";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, useParams, useHistory, useLocation } from "react-router-dom";
 import { ROUTES } from "../../consts";
+
 import s from "./MovieDetailsPage.module.css";
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
   const [details, setDetails] = useState([]);
   const [genres, setGenres] = useState([]);
   const { movieId } = useParams();
-
+  const history = useHistory();
+  const location = useLocation();
+  function back() {
+    const arr = location.pathname.split("/");
+    const lastElement = arr[arr.length - 1];
+    if (lastElement === "reviews" || lastElement === "cast") {
+      history.push("/");
+    } else {
+      history.goBack();
+    }
+  }
   useEffect(() => {
     const apiMovieById = async () => {
       try {
@@ -23,13 +33,16 @@ export const MovieDetailsPage = () => {
       }
     };
     apiMovieById();
-  }, []);
+  }, [movieId]);
   return (
     <section>
+      <div>
+        <button className={s.button} onClick={back} type="submit">
+          GoBack
+        </button>
+      </div>
       <div className={s.container}>
-        <div className={s.poster}>
-          <img src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} alt={details.original_title} />
-        </div>
+        <div className={s.poster}>{details.poster_path && <img src={`https://image.tmdb.org/t/p/w300${details.poster_path}`} alt={details.original_title} />}</div>
         <div className={s.description}>
           <h1> {details.title} </h1>
           <p>Release date: {details.release_date}</p>
@@ -46,15 +59,18 @@ export const MovieDetailsPage = () => {
           </ul>
         </div>
       </div>
-
       <div>
         <p>Aditional information</p>
-        <ul>
-          <li>
-            <Link to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>Cast</Link>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <Link className={s.link} to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>
+              Cast
+            </Link>
           </li>
-          <li>
-            <Link to={`${ROUTES.MoviesPage}/${movieId}/${"reviews"}`}>Review</Link>
+          <li className={s.item}>
+            <Link className={s.link} to={`${ROUTES.MoviesPage}/${movieId}/${"reviews"}`}>
+              Review
+            </Link>
           </li>
         </ul>
       </div>
@@ -62,9 +78,4 @@ export const MovieDetailsPage = () => {
       <Route path={ROUTES.Review} component={Review} />
     </section>
   );
-};
-// {
-//   match: {
-//     params: { movieId },
-//   },
-// }
+}

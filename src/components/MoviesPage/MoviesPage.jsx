@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 import s from "./MoviesPage.module.css";
 
-export const MoviesPage = () => {
+export default function MoviesPage() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -23,7 +23,6 @@ export const MoviesPage = () => {
     };
     apiSearch();
   }, [query]);
-
   const searchChange = (event) => setQuery(event.currentTarget.value.toLowerCase());
   const submit = (event) => {
     event.preventDefault();
@@ -54,7 +53,7 @@ export const MoviesPage = () => {
       </div>
     </section>
   );
-};
+}
 MoviesPage.propTypes = {
   onSubmit: PropTypes.func,
 };
