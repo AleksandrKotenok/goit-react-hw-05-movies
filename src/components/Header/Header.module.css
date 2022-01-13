@@ -16,3 +16,6 @@ display: flex;
 .link:hover, .link:focus{
    color: deeppink;
 }
+.activelink{
+   color: deeppink;
+}

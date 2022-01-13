@@ -32,10 +32,13 @@
    
    }
    .link{
-      text-decoration: none;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
+   text-decoration: none;
+   cursor: pointer;
+   color: rgb(0, 0, 0);
    }
    .link:hover, .link:focus{
+      color: deeppink;
+   }
+   .activelink{
       color: deeppink;
    }

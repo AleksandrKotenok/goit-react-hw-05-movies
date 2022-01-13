@@ -2,7 +2,7 @@ import { Cast } from "./Cast/Cast";
 import { Review } from "./Reviews/Reviews";
 import { MovieById } from "../../API/api";
 import { useState, useEffect } from "react";
-import { Route, Link, useParams, useHistory, useLocation } from "react-router-dom";
+import { Route, NavLink, useParams, useHistory, useLocation } from "react-router-dom";
 import { ROUTES } from "../../consts";
 
 import s from "./MovieDetailsPage.module.css";
@@ -63,14 +63,14 @@ export default function MovieDetailsPage() {
         <p>Aditional information</p>
         <ul className={s.list}>
           <li className={s.item}>
-            <Link className={s.link} to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>
+            <NavLink className={s.link} activeClassName={s.activelink} to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>
               Cast
-            </Link>
+            </NavLink>
           </li>
           <li className={s.item}>
-            <Link className={s.link} to={`${ROUTES.MoviesPage}/${movieId}/${"reviews"}`}>
+            <NavLink className={s.link} activeClassName={s.activelink} to={`${ROUTES.MoviesPage}/${movieId}/${"reviews"}`}>
               Review
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
