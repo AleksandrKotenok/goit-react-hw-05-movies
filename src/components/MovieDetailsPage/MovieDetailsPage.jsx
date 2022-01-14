@@ -60,7 +60,7 @@ export default function MovieDetailsPage() {
         </div>
       </div>
       <div>
-        <p>Aditional information</p>
+        <h3>Aditional information</h3>
         <ul className={s.list}>
           <li className={s.item}>
             <NavLink className={s.link} activeClassName={s.activelink} to={`${ROUTES.MoviesPage}/${movieId}/${"cast"}`}>
