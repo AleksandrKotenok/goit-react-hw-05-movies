@@ -22,7 +22,9 @@ export default function HomePage() {
     <ul className={s.list}>
       {trends.map((trend) => (
         <li key={trend.id} className={s.item}>
-          <Link to={`${ROUTES.MoviesPage}/${trend.id}`}>{trend.title}</Link>
+          <Link className={s.link} to={`${ROUTES.MoviesPage}/${trend.id}`}>
+            {trend.title}
+          </Link>
         </li>
       ))}
     </ul>
