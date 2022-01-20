@@ -1,8 +1,8 @@
-import { Search } from "../../API/api";
-import { ROUTES } from "../../consts";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Search } from "../../API/api";
+import { ROUTES } from "../../routes";
 
 import s from "./MoviesPage.module.css";
 
@@ -46,7 +46,7 @@ export default function MoviesPage() {
         <ul>
           {movies.map((movie) => (
             <li key={movie.id}>
-              <Link to={`${ROUTES.MoviesPage}/${movie.id}`}>{movie.title}</Link>
+              <Link to={`${ROUTES.MoviesPage}/${movie.id}/search/${query}`}>{movie.title}</Link>
             </li>
           ))}
         </ul>

@@ -1,9 +1,9 @@
+import { useState, useEffect } from "react";
+import { Route, NavLink, useParams, useHistory, useLocation } from "react-router-dom";
 import { Cast } from "./Cast/Cast";
 import { Review } from "./Reviews/Reviews";
 import { MovieById } from "../../API/api";
-import { useState, useEffect } from "react";
-import { Route, NavLink, useParams, useHistory, useLocation } from "react-router-dom";
-import { ROUTES } from "../../consts";
+import { ROUTES } from "../../routes";
 
 import s from "./MovieDetailsPage.module.css";
 
@@ -16,8 +16,12 @@ export default function MovieDetailsPage() {
   function back() {
     const arr = location.pathname.split("/");
     const lastElement = arr[arr.length - 1];
+    const elementForSearch = arr[arr.length - 2];
     if (lastElement === "reviews" || lastElement === "cast") {
       history.push("/");
+    } else if (elementForSearch === "search") {
+      console.log("нужно сделать поиск");
+      history.push("/movies", { from: "MoviesPage" }); //, { from: "HomePage" }
     } else {
       history.goBack();
     }

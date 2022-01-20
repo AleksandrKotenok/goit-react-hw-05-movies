@@ -1,7 +1,7 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Credits } from "../../../API/api";
 import noImage from "../../../image/noImage.jpg";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 import s from "../Cast/Cast.module.css";
 

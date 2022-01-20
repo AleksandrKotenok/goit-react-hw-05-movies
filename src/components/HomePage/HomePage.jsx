@@ -1,7 +1,7 @@
-import { Trending } from "../../API/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../consts";
+import { Trending } from "../../API/api";
+import { ROUTES } from "../../routes";
 
 import s from "./HomePage.module.css";
 
